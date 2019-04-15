@@ -2,58 +2,28 @@ import java.util.*;
 
 public class Sublist implements Cloneable
 {
-   private ArrayList<Integer> originalDataSet;
-   private ArrayList<Integer> indices; // Represents the data in this Sublist
+   private int sum;
+   private ArrayList<Integer> dataSet;
+   private ArrayList<Integer> indices;
    
-   // Constructor
-   public Sublist(ArrayList<Integer> originalDataSet) 
+   public Sublist(ArrayList<Integer> dataSet) 
    {
-      this.originalDataSet = originalDataSet;
+      this.sum = 0;
+      this.dataSet = dataSet;
       this.indices = new ArrayList<Integer>();
    }
    
    public int getSum() 
    {
-      int sum = 0;
-      if (this.getSize() == 0) 
-      {
-         return sum;
-      }
-      for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
-      {
-         sum += this.getValue(sublistIndex);
-      }
-      return sum;
+      return this.sum;
    }
    
-   private int getSize()
+   public Sublist addItem(int index) throws CloneNotSupportedException
    {
-      return this.indices.size(); 
-   }
-   
-   private int getValue(int sublistIndex)
-   {
-      int index = this.getIndex(sublistIndex);
-      return this.originalDataSet.get(index);
-   }
-   
-   private int getIndex(int sublistIndex)
-   {
-      return this.indices.get(sublistIndex);
-   }
-   
-   public Sublist clone() throws CloneNotSupportedException
-   {
-      Sublist clonedSublist = (Sublist)super.clone();
-      clonedSublist.indices = (ArrayList<Integer>)indices.clone();
-      return clonedSublist;
-   }
-   
-   public Sublist addItem(int originalIndex) throws CloneNotSupportedException
-   {
-      Sublist appendedSublist = this.clone();
-      appendedSublist.indices.add(originalIndex);
-      return appendedSublist;
+      Sublist newSublist = this.clone();
+      newSublist.indices.add(index);
+      newSublist.sum += this.sum;
+      return newSublist;
    }
    
    public void showSublist()
@@ -61,19 +31,42 @@ public class Sublist implements Cloneable
       System.out.println(this.toString());
    }
    
+   @SuppressWarnings("unchecked") // Suppressing Unchecked Type Cast Warning
+   public Sublist clone() throws CloneNotSupportedException
+   {
+      Sublist newSublist = (Sublist)super.clone();
+      newSublist.indices = (ArrayList<Integer>)indices.clone();
+      return newSublist;
+   }
+   
    public String toString()
    {
-      StringBuilder display = new StringBuilder();
-      display.append("Sublist -----------------------------");
-      display.append("\n  sum: " + this.getSum());
-      display.append("\n  size: " + this.getSize());
-      
-      for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
+      StringBuilder text = new StringBuilder();
+      text.append("Sublist -----------------------------");
+      text.append("\n  sum: " + this.getSum());
+      text.append("\n  size: " + this.getSize());
+      for (int subIndex = 0; subIndex < this.getSize(); subIndex++)
       {
-         int index = this.getIndex(sublistIndex);
-         int value = this.getValue(sublistIndex);
-         display.append("\n  array[" + index + "] = " + value);
+         int index = this.getIndex(subIndex);
+         int value = this.getValue(subIndex);
+         text.append("\n  array[" + index + "] = " + value);
       }
-      return display.toString();
+      return text.toString();
+   }
+   
+   private int getSize() 
+   {
+      return this.indices.size(); 
+   }
+   
+   private int getValue(int subIndex)
+   {
+      int index = this.getIndex(subIndex);
+      return this.dataSet.get(index);
+   }
+   
+   private int getIndex(int subIndex)
+   {
+      return this.indices.get(subIndex);
    }
 }
