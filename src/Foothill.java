@@ -9,29 +9,54 @@ public class Foothill
       int target = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
       ArrayList<Sublist> choices = new ArrayList<Sublist>();
-      int k, j, numSets, max, kBest, masterSum;
-      boolean foundPerfect;
+      //int numSets, max, kBest, masterSum;
+      boolean found = false;
 
       dataSet.add(2); dataSet.add(12); dataSet.add(22);
       dataSet.add(5); dataSet.add(15); dataSet.add(25);
       dataSet.add(9); dataSet.add(19); dataSet.add(29);
       
-      //choices.add(new Sublist(dataSet));
+      choices.add(new Sublist(dataSet));
+      Sublist perfectMatch;
       
-      Sublist a = new Sublist(dataSet);
-      a.showSublist();
-      Sublist b = a.addItem(0);
-      b.showSublist();
-      Sublist c = b.addItem(4);
-      c.showSublist();
-      Sublist d = c.addItem(2);
-      d.showSublist();
-      Sublist e = d.addItem(3);
-      e.showSublist();
-      Sublist f = e.addItem(1);
-      f.showSublist();
-      Sublist g = f.addItem(5);
-      g.showSublist();
+      // k is index in dataSet
+      
+      int dataCount = dataSet.size();
+      
+      
+      for (int k = 0; k < dataCount && !found; k++) 
+      {
+         int dataAtK = dataSet.get(k);
+         int choiceCount = choices.size();
+         
+         for (int j = 0; j < choiceCount && !found; j++)
+         {
+            Sublist choiceAtJ = choices.get(j);
+            int testSum = choiceAtJ.getSum() + dataAtK;
+            
+            if (testSum <= target) 
+            {
+               Sublist newChoice = choiceAtJ.addItem(k);
+               choices.add(newChoice);
+               
+               if (testSum == target)
+               {
+                  found = true;
+                  perfectMatch = newChoice;
+                  perfectMatch.showSublist();
+               }
+            }
+         }
+      }
+
+      
+      //printArrayList(choices);
+      
+      
+      
+      
+      
+      
       
       
       // loop over all elements x in S
@@ -46,7 +71,12 @@ public class Foothill
       
    }
    
-   public static void printArrayList(ArrayList<Integer> arrayListToPrint)
+   public static <E> void printArrayList(ArrayList<E> arrayListToPrint)
+   {
+      System.out.println(Arrays.deepToString(arrayListToPrint.toArray()));
+   }
+   
+   public static void printArrayList1(ArrayList<Integer> arrayListToPrint)
    {
       System.out.println(Arrays.deepToString(arrayListToPrint.toArray()));
    }
