@@ -2,22 +2,44 @@ import java.util.*;
 
 public class Sublist implements Cloneable
 {
-   private int sum = 0;
    private ArrayList<Integer> originalDataSet;
    private ArrayList<Integer> indices; // Represents the data in this Sublist
    
-   // Constructor creates an empty Sublist (no indices)
+   // Constructor
    public Sublist(ArrayList<Integer> originalDataSet) 
    {
-      this.sum = 0;
       this.originalDataSet = originalDataSet;
       this.indices = new ArrayList<Integer>();
    }
    
-   // Getter Method
    public int getSum() 
    {
-      return this.sum; 
+      if (this.getSize() == 0) 
+      {
+         return 0;
+      }
+      int sum = 0;
+      for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
+      {
+         sum += this.getValue(sublistIndex);
+      }
+      return sum;
+   }
+   
+   private int getSize()
+   {
+      return this.indices.size(); 
+   }
+   
+   private int getValue(int sublistIndex)
+   {
+      int originalIndex = this.getIndex(sublistIndex);
+      return this.originalDataSet.get(originalIndex);
+   }
+   
+   private int getIndex(int sublistIndex)
+   {
+      return this.indices.get(sublistIndex);
    }
    
    public Sublist clone() throws CloneNotSupportedException
@@ -27,13 +49,30 @@ public class Sublist implements Cloneable
       return clonedSublist;
    }
    
-   public Sublist addItem(int indexOfItemToAdd) throws CloneNotSupportedException
+   public Sublist addItem(int originalIndex) throws CloneNotSupportedException
    {
-      Sublist newSublist = this.clone();
-      
-      return newSublist;
+      Sublist appendedSublist = this.clone();
+      appendedSublist.indices.add(originalIndex);
+      return appendedSublist;
    }
    
-   public void showSublist(){ /* TBD */ }
+   public void showSublist()
+   {
+      System.out.println(this.toString());
+   }
    
+   public String toString()
+   {
+      StringBuilder display = new StringBuilder();
+      display.append("Sublist -----------------------------");
+      display.append("\n  sum: " + this.getSum());
+      
+      for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
+      {
+         int index = this.getIndex(sublistIndex);
+         int value = this.getValue(sublistIndex);
+         display.append("\n  array[" + index + "] = " + value);
+      }
+      return display.toString();
+   }
 }
