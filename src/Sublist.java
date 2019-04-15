@@ -3,31 +3,37 @@ import java.util.*;
 public class Sublist implements Cloneable
 {
    private int sum = 0;
-   private ArrayList<Integer> originalObjects;
-   private ArrayList<Integer> indices;
+   private ArrayList<Integer> originalDataSet;
+   private ArrayList<Integer> indices; // Represents the data in this Sublist
    
-   // constructor creates an empty Sublist (no indices)
-   public Sublist(ArrayList<Integer> orig) 
+   // Constructor creates an empty Sublist (no indices)
+   public Sublist(ArrayList<Integer> originalDataSet) 
    {
-      sum = 0;
-      originalObjects = orig;
-      indices = new ArrayList<Integer>();
+      this.sum = 0;
+      this.originalDataSet = originalDataSet;
+      this.indices = new ArrayList<Integer>();
    }
    
-   int getSum() { return sum; }
-   
-   // I have done the clone() for you, since you will need clone() inside addItem().
-   public Object clone() throws CloneNotSupportedException
+   // Getter Method
+   public int getSum() 
    {
-      // shallow copy
-      Sublist newObject = (Sublist)super.clone();
-      // deep copy
-      newObject.indices = (ArrayList<Integer>)indices.clone();
+      return this.sum; 
+   }
+   
+   public Sublist clone() throws CloneNotSupportedException
+   {
+      Sublist clonedSublist = (Sublist)super.clone();
+      clonedSublist.indices = (ArrayList<Integer>)indices.clone();
+      return clonedSublist;
+   }
+   
+   public Sublist addItem(int indexOfItemToAdd) throws CloneNotSupportedException
+   {
+      Sublist newSublist = this.clone();
       
-      return newObject;
+      return newSublist;
    }
    
-   //Sublist addItem( int indexOfItemToAdd ){ /* TBD */ }
+   public void showSublist(){ /* TBD */ }
    
-   void showSublist(){ /* TBD */ }
-};
+}

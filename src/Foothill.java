@@ -8,7 +8,7 @@ public class Foothill
    {
       int targetSum = 15;
       
-      // dataSet represents the Set S of integers
+      // originalDataSet represents the Set S of integers
       ArrayList<Integer> originalDataSet = new ArrayList<Integer>();
       originalDataSet.add(98);
       originalDataSet.add(51);
@@ -16,11 +16,11 @@ public class Foothill
       originalDataSet.add(106);
       originalDataSet.add(77);
       originalDataSet.add(18);
-      
+     
       printArrayList(originalDataSet);
-      
-      // choices represents the Set Col of Sublists
-//      ArrayList<Sublist> choices = new ArrayList<Sublist>();
+  
+      // sublistCollection represents the Set Col of Sublists
+      ArrayList<Sublist> sublistCollection = new ArrayList<Sublist>();
 //      
 //      int k, j, numSets, max, kBest, masterSum;
 //      boolean foundPerfect;
