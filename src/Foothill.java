@@ -1,58 +1,22 @@
-// FHstack main
-// CS 1C, Foothill College, Michael Loceff, creator
+import java.util.*;
 
-// import statement needed to gain access to the entire class
-import cs_1c.*;
-
+//------------------------------------------------------
 public class Foothill
 {
-   public static void main (String[] args) throws CloneNotSupportedException
+   // ------- main --------------
+   public static void main(String[] args) throws Exception
    {
-      int k;
-      FHstack<Integer> myStack = new FHstack<Integer>();
+      int target = 72;
+      ArrayList<Integer> dataSet = new ArrayList<Integer>();
+      ArrayList<Sublist> choices = new ArrayList<Sublist>();
+      int k, j, numSets, max, kBest, masterSum;
+      boolean foundPerfect;
 
-      for (k = 0; k < 10; k++)
-         myStack.push(k);
+      dataSet.add(2);
+      dataSet.add(12);
 
-      int theTop = myStack.top();
-      System.out.println("top: " + theTop );
+      // code supplied by student
 
-      for (k = 0; k < 12; k++)
-         System.out.println( myStack.pop() );
-   }
-}
-
-//generic FHstack class ------------------------------------
-class FHstack<E> 
-{
- private FHarrayList<E> mArrayList = new FHarrayList<E>();
-   
-   public void push(E x)
-   {
-      mArrayList.add(x);
-   }
-   
-   public E pop()
-   {
-      try
-      {
-         return mArrayList.remove( mArrayList.size() - 1 );
-      }
-      catch (IndexOutOfBoundsException e)
-      {
-         return null;
-      }
-   }
-   
-   E top()
-   {
-      try
-      {
-         return mArrayList.get( mArrayList.size() - 1 );
-      }
-      catch (IndexOutOfBoundsException e)
-      {
-         return null;
-      }
+      choices.get(kBest).showSublist();
    }
 }
