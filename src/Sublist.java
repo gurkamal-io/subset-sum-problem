@@ -33,8 +33,8 @@ public class Sublist implements Cloneable
    
    private int getValue(int sublistIndex)
    {
-      int originalIndex = this.getIndex(sublistIndex);
-      return this.originalDataSet.get(originalIndex);
+      int index = this.getIndex(sublistIndex);
+      return this.originalDataSet.get(index);
    }
    
    private int getIndex(int sublistIndex)
