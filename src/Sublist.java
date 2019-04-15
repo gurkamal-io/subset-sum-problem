@@ -26,7 +26,7 @@ public class Sublist implements Cloneable
       return sum;
    }
    
-   public int getSize()
+   private int getSize()
    {
       return this.indices.size(); 
    }

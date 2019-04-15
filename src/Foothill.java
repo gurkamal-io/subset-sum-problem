@@ -5,43 +5,21 @@ public class Foothill
 {
    // ------- main --------------
    public static void main(String[] args) throws Exception
-   {
-      int targetSum = 15;
-      
-      
-      
-      // originalDataSet represents the Set S of integers
+   {  
+      int targetSum = 72;
       ArrayList<Integer> originalDataSet = new ArrayList<Integer>();
-      originalDataSet.add(98);
-      originalDataSet.add(51);
-      originalDataSet.add(9);
+      ArrayList<Sublist> sublistChoices = new ArrayList<Sublist>();
+      int k, j, numSets, max, kBest, masterSum;
+      boolean foundPerfect;
       
-      Sublist a = new Sublist(originalDataSet);
-      a.showSublist();
+      originalDataSet.add(2); originalDataSet.add(12); originalDataSet.add(22);
+      originalDataSet.add(5); originalDataSet.add(15); originalDataSet.add(25);
+      originalDataSet.add(9); originalDataSet.add(19); originalDataSet.add(29);
       
-      Sublist b = a.addItem(2);
-      b.showSublist();
-      
-      Sublist c = b.addItem(0);
-      c.showSublist();
-      
-      Sublist d = c.addItem(1);
-      d.showSublist();
-      
-     printArrayList(originalDataSet);
-  
-      // sublistCollection represents the Set Col of Sublists
-//      ArrayList<Sublist> sublistCollection = new ArrayList<Sublist>();
-//      
-//      int k, j, numSets, max, kBest, masterSum;
-//      boolean foundPerfect;
-//
-//      dataSet.add(2);
-//      dataSet.add(12);
+      // Implement Algorithm
 
-      // code supplied by student
-
-      //choices.get(kBest).showSublist();
+      sublistChoices.get(kBest).showSublist();
+      
    }
    
    public static void printArrayList(ArrayList<Integer> arrayListToPrint)
