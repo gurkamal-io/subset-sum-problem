@@ -16,8 +16,22 @@ public class Foothill
       dataSet.add(5); dataSet.add(15); dataSet.add(25);
       dataSet.add(9); dataSet.add(19); dataSet.add(29);
       
-      choices.add(new Sublist(dataSet));
+      //choices.add(new Sublist(dataSet));
       
+      Sublist a = new Sublist(dataSet);
+      a.showSublist();
+      Sublist b = a.addItem(0);
+      b.showSublist();
+      Sublist c = b.addItem(4);
+      c.showSublist();
+      Sublist d = c.addItem(2);
+      d.showSublist();
+      Sublist e = d.addItem(3);
+      e.showSublist();
+      Sublist f = e.addItem(1);
+      f.showSublist();
+      Sublist g = f.addItem(5);
+      g.showSublist();
       
       
       // loop over all elements x in S

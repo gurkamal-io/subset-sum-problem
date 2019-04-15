@@ -13,60 +13,32 @@ public class Sublist implements Cloneable
       this.indices = new ArrayList<Integer>();
    }
    
-   public int getSum() 
-   {
-      return this.sum;
-   }
-   
    public Sublist addItem(int index) throws CloneNotSupportedException
    {
-      Sublist newSublist = this.clone();
-      newSublist.indices.add(index);
-      newSublist.sum += this.sum;
-      return newSublist;
+      Sublist newList = clone();
+      newList.indices.add(index);
+      newList.sum += dataSet.get(index);
+      return newList;
    }
    
-   public void showSublist()
-   {
-      System.out.println(this.toString());
-   }
-   
-   @SuppressWarnings("unchecked") // Suppressing Unchecked Type Cast Warning
+   @SuppressWarnings("unchecked") // Type Cast Warning
    public Sublist clone() throws CloneNotSupportedException
    {
-      Sublist newSublist = (Sublist)super.clone();
-      newSublist.indices = (ArrayList<Integer>)indices.clone();
-      return newSublist;
+      Sublist newList = (Sublist)super.clone();
+      newList.indices = (ArrayList<Integer>)indices.clone();
+      return newList;
    }
    
    public String toString()
    {
       StringBuilder text = new StringBuilder();
-      text.append("Sublist -----------------------------");
-      text.append("\n  sum: " + this.getSum());
-      text.append("\n  size: " + this.getSize());
-      for (int subIndex = 0; subIndex < this.getSize(); subIndex++)
-      {
-         int index = this.getIndex(subIndex);
-         int value = this.getValue(subIndex);
-         text.append("\n  array[" + index + "] = " + value);
-      }
+      text.append("Sublist -----------------------------\n  sum: " + getSum());
+      for(int index : indices)
+         text.append("\n  array[" + index + "] = " + dataSet.get(index));
       return text.toString();
    }
    
-   private int getSize() 
-   {
-      return this.indices.size(); 
-   }
+   public void showSublist() { System.out.println(toString()); }
    
-   private int getValue(int subIndex)
-   {
-      int index = this.getIndex(subIndex);
-      return this.dataSet.get(index);
-   }
-   
-   private int getIndex(int subIndex)
-   {
-      return this.indices.get(subIndex);
-   }
+   public int getSum() { return sum; }
 }
