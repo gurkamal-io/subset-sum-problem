@@ -14,11 +14,11 @@ public class Sublist implements Cloneable
    
    public int getSum() 
    {
+      int sum = 0;
       if (this.getSize() == 0) 
       {
-         return 0;
+         return sum;
       }
-      int sum = 0;
       for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
       {
          sum += this.getValue(sublistIndex);
@@ -26,7 +26,7 @@ public class Sublist implements Cloneable
       return sum;
    }
    
-   private int getSize()
+   public int getSize()
    {
       return this.indices.size(); 
    }
@@ -66,6 +66,7 @@ public class Sublist implements Cloneable
       StringBuilder display = new StringBuilder();
       display.append("Sublist -----------------------------");
       display.append("\n  sum: " + this.getSum());
+      display.append("\n  size: " + this.getSize());
       
       for (int sublistIndex = 0; sublistIndex < this.getSize(); sublistIndex++)
       {
