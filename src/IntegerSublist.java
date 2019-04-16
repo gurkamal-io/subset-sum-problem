@@ -1,30 +1,30 @@
 import java.util.*;
 
-public class Sublist implements Cloneable
+public class IntegerSublist implements Cloneable
 {
    private int sum;
    private ArrayList<Integer> dataSet;
    private ArrayList<Integer> indices;
    
-   public Sublist(ArrayList<Integer> dataSet) 
+   public IntegerSublist(ArrayList<Integer> dataSet)
    {
       this.sum = 0;
       this.dataSet = dataSet;
       this.indices = new ArrayList<Integer>();
    }
    
-   public Sublist addItem(int index) throws CloneNotSupportedException
+   public IntegerSublist addItem(int index) throws CloneNotSupportedException
    {
-      Sublist newList = clone();
+      IntegerSublist newList = clone();
       newList.indices.add(index);
       newList.sum += dataSet.get(index);
       return newList;
    }
    
    @SuppressWarnings("unchecked") // Type Cast Warning
-   public Sublist clone() throws CloneNotSupportedException
+   public IntegerSublist clone() throws CloneNotSupportedException
    {
-      Sublist newList = (Sublist)super.clone();
+      IntegerSublist newList = (IntegerSublist)super.clone();
       newList.indices = (ArrayList<Integer>)indices.clone();
       return newList;
    }
@@ -32,7 +32,7 @@ public class Sublist implements Cloneable
    public String toString()
    {
       StringBuilder text = new StringBuilder();
-      text.append("Sublist -----------------------------\n  sum: " + getSum());
+      text.append("IntegerSublist -----------------------------\n  sum: " + getSum());
       for(int index : indices)
          text.append("\n  array[" + index + "] = " + dataSet.get(index));
       return text.toString();

@@ -1,6 +1,3 @@
-package cs_1c;
-
-//class iTunesEntry -----------------------------------------------------
 public class iTunesEntry implements Comparable<iTunesEntry>
 {
    private String title, artist;
