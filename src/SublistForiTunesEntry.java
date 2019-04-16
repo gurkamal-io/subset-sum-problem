@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class SublistForiTunesEntry implements Cloneable
 {
    private int sum;
-   private ArrayList<Integer> dataSet;
+   private ArrayList<iTunesEntry> dataSet;
    private ArrayList<Integer> indices;
 
-   public SublistForiTunesEntry(ArrayList<Integer> dataSet)
+   public SublistForiTunesEntry(ArrayList<iTunesEntry> dataSet)
    {
       this.sum = 0;
       this.dataSet = dataSet;
@@ -17,7 +17,7 @@ public class SublistForiTunesEntry implements Cloneable
    {
       SublistForiTunesEntry newList = clone();
       newList.indices.add(index);
-      newList.sum += dataSet.get(index);
+      newList.sum += dataSet.get(index).getTime();
       return newList;
    }
    
@@ -32,9 +32,14 @@ public class SublistForiTunesEntry implements Cloneable
    public String toString()
    {
       StringBuilder text = new StringBuilder();
-      text.append("SublistForInteger -----------------------------\n  sum: " + getSum());
+      text.append("Sublist -----------------------------\n  sum: " + getSum());
       for(int index : indices)
-         text.append("\n  array[" + index + "] = " + dataSet.get(index));
+         text.append("\n  array[" + index + "] = "
+               + dataSet.get(index).getArtist()
+               + " | "
+               + dataSet.get(index).getTitle()
+               + " | "
+               + dataSet.get(index).convertTimeToString());
       return text.toString();
    }
    
