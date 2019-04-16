@@ -7,18 +7,29 @@ public class Foothill
       final int TARGET = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
       ArrayList<Sublist> choices = new ArrayList<Sublist>();
-      int j, k, choiceCount, testSum, bestSum, bestSublistIndex;
+      int j, k, maxSum, choiceCount, testSum, bestSum, bestSublistIndex;
       boolean foundPerfect;
 
       dataSet.add(2); dataSet.add(12); dataSet.add(22);
       dataSet.add(5); dataSet.add(15); dataSet.add(25);
       dataSet.add(9); dataSet.add(19); dataSet.add(29);
 
+      System.out.println("Target Sum: " + TARGET);
+      // Checking Algorithm Applicability
+      maxSum = 0;
+      for (j = 0; j < dataSet.size(); j++)
+         maxSum += dataSet.get(j);
+      if (maxSum < TARGET)
+      {
+         System.out.println("The target " + TARGET + " is too large.");
+         System.exit(0);
+      }
+
+      // Algorithm for Subset Sum Problem of Positive Integers
       choices.add(new Sublist(dataSet));
       bestSum = 0;
       bestSublistIndex = 0;
       foundPerfect = false;
-
       for (j = 0; (j < dataSet.size()); j++)
       {
          choiceCount = choices.size();
@@ -43,7 +54,6 @@ public class Foothill
          if (foundPerfect)
             break;
       }
-
-     choices.get(bestSublistIndex).showSublist();
+      choices.get(bestSublistIndex).showSublist();
    }
 }
