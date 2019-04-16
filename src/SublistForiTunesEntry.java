@@ -1,30 +1,30 @@
 import java.util.ArrayList;
 
-public class SublistForTunesEntry implements Cloneable
+public class SublistForiTunesEntry implements Cloneable
 {
    private int sum;
    private ArrayList<Integer> dataSet;
    private ArrayList<Integer> indices;
 
-   public SublistForTunesEntry(ArrayList<Integer> dataSet)
+   public SublistForiTunesEntry(ArrayList<Integer> dataSet)
    {
       this.sum = 0;
       this.dataSet = dataSet;
       this.indices = new ArrayList<Integer>();
    }
    
-   public SublistForTunesEntry addItem(int index) throws CloneNotSupportedException
+   public SublistForiTunesEntry addItem(int index) throws CloneNotSupportedException
    {
-      SublistForTunesEntry newList = clone();
+      SublistForiTunesEntry newList = clone();
       newList.indices.add(index);
       newList.sum += dataSet.get(index);
       return newList;
    }
    
    @SuppressWarnings("unchecked") // Type Cast Warning
-   public SublistForTunesEntry clone() throws CloneNotSupportedException
+   public SublistForiTunesEntry clone() throws CloneNotSupportedException
    {
-      SublistForTunesEntry newList = (SublistForTunesEntry)super.clone();
+      SublistForiTunesEntry newList = (SublistForiTunesEntry)super.clone();
       newList.indices = (ArrayList<Integer>)indices.clone();
       return newList;
    }
