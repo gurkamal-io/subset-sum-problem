@@ -77,6 +77,25 @@ public class iTunesEntryReader
 
       if (fileName.length() == 0)
       {
+
+
+
+
+
+
+
+
+         System.out.println("fileName.length() == 0");
+
+
+
+
+
+
+
+
+
+
          fileOpenError = true;
          return;
       }
@@ -98,6 +117,19 @@ public class iTunesEntryReader
                if ( !readOneEntry(inFile, tune) )
                {
                   fileOpenError = true;
+
+
+
+
+
+
+                  System.out.println("!readOneEntry(inFile, tune)");
+
+
+
+
+
+
                   break;
                }
                tunes.add(tune);
@@ -109,10 +141,32 @@ public class iTunesEntryReader
       catch( FileNotFoundException e)
       {
          fileOpenError = true;
+
+
+
+
+
+
+         System.out.println("FileNotFoundException");
+
+
+
+
+
+
       } 
       catch( IOException e)
       {
          fileOpenError = true;
+
+
+
+
+         System.out.println("IOException");
+
+
+
+
       }       
    }
    

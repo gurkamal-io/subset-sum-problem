@@ -1,8 +1,6 @@
 import java.text.*;
 import java.util.*;
 
-import java.util.ArrayList;
-
 public class AlgorithmForiTunesEntry
 {
    public static void iTunesEntrySubsetSumProblem() throws Exception
