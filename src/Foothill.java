@@ -5,100 +5,49 @@ public class Foothill
 {
    // ------- main --------------
    public static void main(String[] args) throws Exception
-   {  
-      int target = 72;
+   {
+      final int TARGET = 13;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
       ArrayList<Sublist> choices = new ArrayList<Sublist>();
-      //int numSets, max, kBest, masterSum;
-      boolean foundPerfect = false;
+      int j, k, choiceCount, testSum, bestSum, bestSublistIndex;
+      boolean foundPerfect;
 
       dataSet.add(2); dataSet.add(12); dataSet.add(22);
       dataSet.add(5); dataSet.add(15); dataSet.add(25);
       dataSet.add(9); dataSet.add(19); dataSet.add(29);
-      
+
       choices.add(new Sublist(dataSet));
-      int bestSum = 0;
-      int kBest = 0;
-// && !foundPerfect
+      bestSum = 0;
+      bestSublistIndex = 0;
+      foundPerfect = false;
 
-
-      for (int j = 0; (j < dataSet.size()); j++)
+      for (j = 0; (j < dataSet.size()); j++)
       {
-         int jthData = dataSet.get(j);
-         int numOfChoices = choices.size();
-
-         print("\nj: " + j);
-         print("jthData: " + jthData);
-
-         for (int k = 0; (k < numOfChoices); k++)
+         choiceCount = choices.size();
+         for (k = 0; (k < choiceCount); k++)
          {
-            Sublist kthChoice = choices.get(k);
-            int kthSum = kthChoice.getSum() + jthData;
-
-            print("\nk: " + k);
-            print("kthSum: " + kthSum);
-
-            if (kthSum <= target)
+            testSum = choices.get(k).getSum() + dataSet.get(j);
+            if (testSum <= TARGET)
             {
-               if (kthSum > bestSum)
+               choices.add(choices.get(k).addItem(j));
+               if (testSum > bestSum)
                {
-                  bestSum = kthSum;
-                  kBest = k;
-
-                  print("\nNEW BEST FOUND");
-                  print("kBest: " + kBest);
-                  print("bestSum: " + bestSum);
-                  print("k: " + k);
-                  print("kthSum: " + kthSum);
+                  bestSum = testSum;
+                  bestSublistIndex = choices.size() - 1;
                }
-               Sublist newChoice = kthChoice.addItem(j);
-               choices.add(newChoice);
-
-               print("\nAdded new Sublist:");
-               newChoice.showSublist();
-
-               if (kthSum == target)
+               if (testSum == TARGET)
                {
-                  //newChoice.showSublist();
-                  print("FOUND_PERFECT "+ kthSum +"at k: " + k + " and j: " + j);
                   foundPerfect = true;
                   break;
                }
             }
          }
-
          if (foundPerfect)
             break;
-
-
-
-
-
-         print("\nfinal kBest: " + kBest + " at j: " + j);
-         print("final bestSum: " + bestSum + " at j: " + j);
       }
-print(""+choices.size());
-     // choices.get(kBest).showSublist();
-      
+
+     choices.get(bestSublistIndex).showSublist();
    }
-
-   public static void print(String str)
-   {
-      System.out.println(str);
-   }
-
-   public static <E> void printArrayList(ArrayList<E> arrayListToPrint)
-   {
-      System.out.println(Arrays.deepToString(arrayListToPrint.toArray()));
-   }
-   
-   public static void printArrayList1(ArrayList<Integer> arrayListToPrint)
-   {
-      System.out.println(Arrays.deepToString(arrayListToPrint.toArray()));
-   }
-
-
-
 }
 
 
