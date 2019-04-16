@@ -13,8 +13,6 @@ public class AlgorithmForiTunesEntry
       int arraySize;
       boolean foundPerfect;
 
-      System.out.println("Target Sum: " + TARGET);
-
       // for formatting and timing
       NumberFormat tidy = NumberFormat.getInstance(Locale.US);
       tidy.setMaximumFractionDigits(4);
@@ -39,43 +37,18 @@ public class AlgorithmForiTunesEntry
       choices.clear();
       System.out.println("Target time: " + TARGET);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      /*
-      // Checking Algorithm Applicability
+      // check algorithm applicability
       maxSum = 0;
       for (dataIndex = 0; dataIndex < dataSet.size(); dataIndex++)
-         maxSum += dataSet.get(dataIndex);
+         maxSum += dataSet.get(dataIndex).getTime();
       if (maxSum < TARGET)
       {
          System.out.println("The target " + TARGET + " is too large.");
          System.exit(0);
       }
 
-      // Algorithm for Subset Sum Problem of Positive Integers
-      choices.add(new SublistForInteger(dataSet));
+      // algorithm for subset sum problem of iTunesEntry abstract data type
+      choices.add(new SublistForiTunesEntry(dataSet));
       bestSum = 0;
       bestChoiceIndex = 0;
       foundPerfect = false;
@@ -84,7 +57,8 @@ public class AlgorithmForiTunesEntry
          choiceCount = choices.size();
          for (choiceIndex = 0; (choiceIndex < choiceCount); choiceIndex++)
          {
-            newSum = choices.get(choiceIndex).getSum() + dataSet.get(dataIndex);
+            newSum = choices.get(choiceIndex).getSum()
+                  + dataSet.get(dataIndex).getTime();
             if (newSum <= TARGET)
             {
                choices.add(choices.get(choiceIndex).addItem(dataIndex));
@@ -104,7 +78,5 @@ public class AlgorithmForiTunesEntry
             break;
       }
       choices.get(bestChoiceIndex).showSublist();
-
-       */
    }
 }
