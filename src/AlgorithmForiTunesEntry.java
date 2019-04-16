@@ -1,22 +1,50 @@
+import java.text.*;
+import java.util.*;
+
 import java.util.ArrayList;
 
 public class AlgorithmForiTunesEntry
 {
    public static void iTunesEntrySubsetSumProblem() throws Exception
    {
-      final int TARGET = 72;
-      ArrayList<Integer> dataSet = new ArrayList<Integer>();
-      ArrayList<SublistForInteger> choices = new ArrayList<SublistForInteger>();
+      final int TARGET = 3600;
+      ArrayList<iTunesEntry> dataSet = new ArrayList<iTunesEntry>();
+      ArrayList<SublistForiTunesEntry> choices = new ArrayList<SublistForiTunesEntry>();
       int dataIndex, choiceIndex, bestChoiceIndex;
       int maxSum, newSum, bestSum, choiceCount;
       boolean foundPerfect;
 
-      dataSet.add(2); dataSet.add(12); dataSet.add(22);
-      dataSet.add(5); dataSet.add(15); dataSet.add(25);
-      dataSet.add(9); dataSet.add(19); dataSet.add(29);
-
       System.out.println("Target Sum: " + TARGET);
 
+      // for formatting and timing
+      NumberFormat tidy = NumberFormat.getInstance(Locale.US);
+      tidy.setMaximumFractionDigits(4);
+      long startTime, stopTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*
       // Checking Algorithm Applicability
       maxSum = 0;
       for (dataIndex = 0; dataIndex < dataSet.size(); dataIndex++)
@@ -57,5 +85,7 @@ public class AlgorithmForiTunesEntry
             break;
       }
       choices.get(bestChoiceIndex).showSublist();
+
+       */
    }
 }
