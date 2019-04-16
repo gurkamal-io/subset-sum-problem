@@ -8,7 +8,7 @@ public class iTunesEntryReader
    private int numTunes;
    private boolean fileOpenError;
    private String tuneFile;
-   
+
    // helper
    private boolean readOneEntry(BufferedReader infile, iTunesEntry tune)
    {
@@ -17,26 +17,26 @@ public class iTunesEntryReader
 
       try
       {
-      if ( infile.ready() )
-         fileArtist = infile.readLine();
-      else
-         return false;
+         if ( infile.ready() )
+            fileArtist = infile.readLine();
+         else
+            return false;
 
-      if ( infile.ready() )
-         fileTitle = infile.readLine();
-      else
-         return false;
+         if ( infile.ready() )
+            fileTitle = infile.readLine();
+         else
+            return false;
 
-      if ( infile.ready() )
-         fileTime = infile.readLine();
-      else
-         return false;
+         if ( infile.ready() )
+            fileTime = infile.readLine();
+         else
+            return false;
       }
       catch (IOException e)
       {
          return false;
       }
-      
+
       // convert string to int
       try
       {
@@ -53,17 +53,17 @@ public class iTunesEntryReader
 
       return true;
    }
-   
+
    // helper
    private boolean isDataLine(String line)
    {
       if (line.length() < 1)
-         return false;  
+         return false;
       if (line.equals("#") )
          return true;
-      return false;    
+      return false;
    }
-   
+
    // constructor
    public iTunesEntryReader(String fileName)
    {
@@ -77,25 +77,6 @@ public class iTunesEntryReader
 
       if (fileName.length() == 0)
       {
-
-
-
-
-
-
-
-
-         System.out.println("fileName.length() == 0");
-
-
-
-
-
-
-
-
-
-
          fileOpenError = true;
          return;
       }
@@ -103,11 +84,11 @@ public class iTunesEntryReader
 
       // open file for reading
       try
-      {  
+      {
          // ------- open and read the file
-         inFile = new BufferedReader( 
-            new FileReader(fileName) );
-         
+         inFile = new BufferedReader(
+               new FileReader(fileName) );
+
          while ( inFile.ready() )
          {
             line = inFile.readLine();
@@ -117,19 +98,6 @@ public class iTunesEntryReader
                if ( !readOneEntry(inFile, tune) )
                {
                   fileOpenError = true;
-
-
-
-
-
-
-                  System.out.println("!readOneEntry(inFile, tune)");
-
-
-
-
-
-
                   break;
                }
                tunes.add(tune);
@@ -141,35 +109,13 @@ public class iTunesEntryReader
       catch( FileNotFoundException e)
       {
          fileOpenError = true;
-
-
-
-
-
-
-         System.out.println("FileNotFoundException");
-
-
-
-
-
-
-      } 
+      }
       catch( IOException e)
       {
          fileOpenError = true;
-
-
-
-
-         System.out.println("IOException");
-
-
-
-
-      }       
+      }
    }
-   
+
    // accessors
    public iTunesEntry getTune(int k)
    {
@@ -177,7 +123,7 @@ public class iTunesEntryReader
          return new iTunesEntry();  // dummy return
       return tunes.get(k);
    }
-   
+
    public String getFileName() { return tuneFile; }
    public boolean readError() { return fileOpenError; }
    public int getNumTunes() { return numTunes; }
