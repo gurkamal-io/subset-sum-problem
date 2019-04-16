@@ -15,7 +15,7 @@ public class Main
    {
       final int TARGET = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
-      ArrayList<IntegerSublist> choices = new ArrayList<IntegerSublist>();
+      ArrayList<SublistForInteger> choices = new ArrayList<SublistForInteger>();
       int j, k, maxSum, choiceCount, testSum, bestSum, bestSublistIndex;
       boolean foundPerfect;
 
@@ -36,7 +36,7 @@ public class Main
       }
 
       // Algorithm for Subset Sum Problem of Positive Integers
-      choices.add(new IntegerSublist(dataSet));
+      choices.add(new SublistForInteger(dataSet));
       bestSum = 0;
       bestSublistIndex = 0;
       foundPerfect = false;
@@ -71,7 +71,7 @@ public class Main
    {
       final int TARGET = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
-      ArrayList<IntegerSublist> choices = new ArrayList<IntegerSublist>();
+      ArrayList<SublistForInteger> choices = new ArrayList<SublistForInteger>();
       int j, k, maxSum, choiceCount, testSum, bestSum, bestSublistIndex;
       boolean foundPerfect;
 
@@ -92,7 +92,7 @@ public class Main
       }
 
       // Algorithm for Subset Sum Problem of Positive Integers
-      choices.add(new IntegerSublist(dataSet));
+      choices.add(new SublistForInteger(dataSet));
       bestSum = 0;
       bestSublistIndex = 0;
       foundPerfect = false;
