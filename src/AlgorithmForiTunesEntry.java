@@ -10,8 +10,9 @@ public class AlgorithmForiTunesEntry
       final int TARGET = 3600;
       ArrayList<iTunesEntry> dataSet = new ArrayList<iTunesEntry>();
       ArrayList<SublistForiTunesEntry> choices = new ArrayList<SublistForiTunesEntry>();
-      int dataIndex, choiceIndex, bestChoiceIndex;
+      int dataIndex, choiceIndex, bestChoiceIndex, k;
       int maxSum, newSum, bestSum, choiceCount;
+      int arraySize;
       boolean foundPerfect;
 
       System.out.println("Target Sum: " + TARGET);
@@ -20,6 +21,26 @@ public class AlgorithmForiTunesEntry
       NumberFormat tidy = NumberFormat.getInstance(Locale.US);
       tidy.setMaximumFractionDigits(4);
       long startTime, stopTime;
+
+      // read the iTunes Data
+      iTunesEntryReader tunesInput = new iTunesEntryReader("itunes_file.txt");
+
+      // test the success of the read:
+      if (tunesInput.readError())
+      {
+         System.out.println("couldn't open " + tunesInput.getFileName()
+               + " for input.");
+         return;
+      }
+
+      // load the dataSet ArrayList with the iTunes:
+      arraySize = tunesInput.getNumTunes();
+      for (k = 0; k < arraySize; k++)
+         dataSet.add(tunesInput.getTune(k));
+
+      choices.clear();
+      System.out.println("Target time: " + TARGET);
+
 
 
 
