@@ -1,3 +1,5 @@
+package subset_sum_problem;
+
 import java.util.ArrayList;
 
 public class AlgorithmForInteger

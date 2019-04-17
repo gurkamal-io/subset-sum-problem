@@ -1,3 +1,8 @@
+package subset_sum_problem;
+
+import abstract_data_type.*;
+
+
 import java.util.ArrayList;
 
 public class SublistForiTunesEntry implements Cloneable
