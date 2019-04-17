@@ -3,7 +3,6 @@ package abstract_data_type;
 import java.io.*;
 import java.util.*;
 
-//class iTunesEntryReader -----------------------------------------------------
 public class iTunesEntryReader
 {
    ArrayList<iTunesEntry> tunes = new ArrayList<iTunesEntry>();

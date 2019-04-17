@@ -1,6 +1,5 @@
 package abstract_data_type;
 
-
 public class iTunesEntry implements Comparable<iTunesEntry>
 {
    private String title, artist;

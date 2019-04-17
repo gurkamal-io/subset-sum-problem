@@ -8,3 +8,5 @@
  */
 
 rootProject.name = "subset-sum-problem"
+include("integer-algorithm")
+include("itunes-algorithm")

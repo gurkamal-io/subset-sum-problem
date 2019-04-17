@@ -1,14 +1,14 @@
-package subset_sum_problem;
+package integer_algorithm;
 
 import java.util.ArrayList;
 
-public class IntegerAlgorithm
+public class App
 {
-   public static void integerSubsetSumProblem() throws Exception
+   public static void main(String[] args) throws Exception
    {
       final int TARGET = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
-      ArrayList<IntegerSublist> choices = new ArrayList<IntegerSublist>();
+      ArrayList<Sublist> choices = new ArrayList<Sublist>();
       int dataIndex, choiceIndex, bestChoiceIndex;
       int maxSum, newSum, bestSum, choiceCount;
       boolean foundPerfect;
@@ -19,7 +19,7 @@ public class IntegerAlgorithm
 
       System.out.println("Target Sum: " + TARGET);
 
-      // Checking Algorithm Applicability
+      // check algorithm applicability
       maxSum = 0;
       for (dataIndex = 0; dataIndex < dataSet.size(); dataIndex++)
          maxSum += dataSet.get(dataIndex);
@@ -29,8 +29,8 @@ public class IntegerAlgorithm
          System.exit(0);
       }
 
-      // Algorithm for Subset Sum Problem of Positive Integers
-      choices.add(new IntegerSublist(dataSet));
+      // algorithm for subset sum problem of positive integers
+      choices.add(new Sublist(dataSet));
       bestSum = 0;
       bestChoiceIndex = 0;
       foundPerfect = false;
@@ -60,47 +60,4 @@ public class IntegerAlgorithm
       }
       choices.get(bestChoiceIndex).showSublist();
    }
-}
-
-class IntegerSublist implements Cloneable
-{
-   private int sum;
-   private ArrayList<Integer> dataSet;
-   private ArrayList<Integer> indices;
-   
-   public IntegerSublist(ArrayList<Integer> dataSet)
-   {
-      this.sum = 0;
-      this.dataSet = dataSet;
-      this.indices = new ArrayList<Integer>();
-   }
-   
-   public IntegerSublist addItem(int index) throws CloneNotSupportedException
-   {
-      IntegerSublist newList = clone();
-      newList.indices.add(index);
-      newList.sum += dataSet.get(index);
-      return newList;
-   }
-   
-   @SuppressWarnings("unchecked") // Type Cast Warning
-   public IntegerSublist clone() throws CloneNotSupportedException
-   {
-      IntegerSublist newList = (IntegerSublist)super.clone();
-      newList.indices = (ArrayList<Integer>)indices.clone();
-      return newList;
-   }
-   
-   public String toString()
-   {
-      StringBuilder text = new StringBuilder();
-      text.append("SublistForInteger -----------------------------\n  sum: " + getSum());
-      for(int index : indices)
-         text.append("\n  array[" + index + "] = " + dataSet.get(index));
-      return text.toString();
-   }
-   
-   public void showSublist() { System.out.println(toString()); }
-   
-   public int getSum() { return sum; }
 }
