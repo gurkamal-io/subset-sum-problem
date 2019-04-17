@@ -2,13 +2,13 @@ package subset_sum_problem;
 
 import java.util.ArrayList;
 
-public class AlgorithmForInteger
+public class IntegerAlgorithm
 {
    public static void integerSubsetSumProblem() throws Exception
    {
       final int TARGET = 72;
       ArrayList<Integer> dataSet = new ArrayList<Integer>();
-      ArrayList<SublistForInteger> choices = new ArrayList<SublistForInteger>();
+      ArrayList<IntegerSublist> choices = new ArrayList<IntegerSublist>();
       int dataIndex, choiceIndex, bestChoiceIndex;
       int maxSum, newSum, bestSum, choiceCount;
       boolean foundPerfect;
@@ -30,7 +30,7 @@ public class AlgorithmForInteger
       }
 
       // Algorithm for Subset Sum Problem of Positive Integers
-      choices.add(new SublistForInteger(dataSet));
+      choices.add(new IntegerSublist(dataSet));
       bestSum = 0;
       bestChoiceIndex = 0;
       foundPerfect = false;
@@ -60,4 +60,47 @@ public class AlgorithmForInteger
       }
       choices.get(bestChoiceIndex).showSublist();
    }
+}
+
+class IntegerSublist implements Cloneable
+{
+   private int sum;
+   private ArrayList<Integer> dataSet;
+   private ArrayList<Integer> indices;
+   
+   public IntegerSublist(ArrayList<Integer> dataSet)
+   {
+      this.sum = 0;
+      this.dataSet = dataSet;
+      this.indices = new ArrayList<Integer>();
+   }
+   
+   public IntegerSublist addItem(int index) throws CloneNotSupportedException
+   {
+      IntegerSublist newList = clone();
+      newList.indices.add(index);
+      newList.sum += dataSet.get(index);
+      return newList;
+   }
+   
+   @SuppressWarnings("unchecked") // Type Cast Warning
+   public IntegerSublist clone() throws CloneNotSupportedException
+   {
+      IntegerSublist newList = (IntegerSublist)super.clone();
+      newList.indices = (ArrayList<Integer>)indices.clone();
+      return newList;
+   }
+   
+   public String toString()
+   {
+      StringBuilder text = new StringBuilder();
+      text.append("SublistForInteger -----------------------------\n  sum: " + getSum());
+      for(int index : indices)
+         text.append("\n  array[" + index + "] = " + dataSet.get(index));
+      return text.toString();
+   }
+   
+   public void showSublist() { System.out.println(toString()); }
+   
+   public int getSum() { return sum; }
 }

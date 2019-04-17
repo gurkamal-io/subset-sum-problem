@@ -3,15 +3,16 @@
  */
 package subset_sum_problem;
 
+
 public class App {
 
     public static void main(String[] args) throws Exception
     {
         System.out.println("\n>> iTunesEntrySubsetSumProblem();");
-        AlgorithmForiTunesEntry.iTunesEntrySubsetSumProblem();
+        iTunesAlgorithm.iTunesEntrySubsetSumProblem();
         
         System.out.println("\n>> integerSubsetSumProblem();");
-        AlgorithmForInteger.integerSubsetSumProblem();
+        IntegerAlgorithm.integerSubsetSumProblem();
         
     }
 }

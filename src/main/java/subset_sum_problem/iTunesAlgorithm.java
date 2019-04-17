@@ -4,13 +4,13 @@ import abstract_data_type.*;
 import java.text.*;
 import java.util.*;
 
-public class AlgorithmForiTunesEntry
+public class iTunesAlgorithm
 {
    public static void iTunesEntrySubsetSumProblem() throws Exception
    {
       final int TARGET = 3600;
       ArrayList<iTunesEntry> dataSet = new ArrayList<iTunesEntry>();
-      ArrayList<SublistForiTunesEntry> choices = new ArrayList<SublistForiTunesEntry>();
+      ArrayList<iTunesSublist> choices = new ArrayList<iTunesSublist>();
       int dataIndex, choiceIndex, bestChoiceIndex, k;
       int maxSum, newSum, bestSum, choiceCount;
       int arraySize;
@@ -51,7 +51,7 @@ public class AlgorithmForiTunesEntry
       }
 
       // algorithm for subset sum problem of iTunesEntry abstract data type
-      choices.add(new SublistForiTunesEntry(dataSet));
+      choices.add(new iTunesSublist(dataSet));
       bestSum = 0;
       bestChoiceIndex = 0;
       foundPerfect = false;
@@ -82,4 +82,52 @@ public class AlgorithmForiTunesEntry
       }
       choices.get(bestChoiceIndex).showSublist();
    }
+}
+
+class iTunesSublist implements Cloneable
+{
+   private int sum;
+   private ArrayList<iTunesEntry> dataSet;
+   private ArrayList<Integer> indices;
+
+   public iTunesSublist(ArrayList<iTunesEntry> dataSet)
+   {
+      this.sum = 0;
+      this.dataSet = dataSet;
+      this.indices = new ArrayList<Integer>();
+   }
+   
+   public iTunesSublist addItem(int index) throws CloneNotSupportedException
+   {
+      iTunesSublist newList = clone();
+      newList.indices.add(index);
+      newList.sum += dataSet.get(index).getTime();
+      return newList;
+   }
+   
+   @SuppressWarnings("unchecked") // Type Cast Warning
+   public iTunesSublist clone() throws CloneNotSupportedException
+   {
+      iTunesSublist newList = (iTunesSublist)super.clone();
+      newList.indices = (ArrayList<Integer>)indices.clone();
+      return newList;
+   }
+   
+   public String toString()
+   {
+      StringBuilder text = new StringBuilder();
+      text.append("Sublist -----------------------------\n  sum: " + getSum());
+      for(int index : indices)
+         text.append("\n  array[" + index + "] = "
+               + dataSet.get(index).getArtist()
+               + " | "
+               + dataSet.get(index).getTitle()
+               + " | "
+               + dataSet.get(index).convertTimeToString());
+      return text.toString();
+   }
+   
+   public void showSublist() { System.out.println(toString()); }
+   
+   public int getSum() { return sum; }
 }
