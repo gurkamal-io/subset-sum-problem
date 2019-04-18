@@ -24,4 +24,4 @@ $ git clone https://github.com/gurkamalpsc/subset-sum-problem.git && cd subset-s
 * [IntelliJ Idea CE](https://www.jetbrains.com/idea/) - Java & Kotlin IDE
 * [Gradle 5.4](https://gradle.org/) - Build Tool & Monorepo Management
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License
