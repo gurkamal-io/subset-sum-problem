@@ -12,10 +12,9 @@ Let's say a computer generates a large set of positive integers that get stored 
 ## Installation
 #### Prerequesites
 * [Java 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html) - Gradle 5.4 requires Java 8 or later to run.
-#### Command Line
-```
-$ git clone https://github.com/gurkamalpsc/subset-sum-problem.git && cd subset-sum-problem && ./gradlew run
-```
+* MacOS<br />```$ brew cask install java```
+* Linux<br />```$ brew cask install java```
+* Windows<br />```C:\> choco install jdk8```
 ## Usage
 #### Command Line
 ```
@@ -23,6 +22,6 @@ $ git clone https://github.com/gurkamalpsc/subset-sum-problem.git && cd subset-s
 ```
 ## Built With
 * [IntelliJ Idea CE](https://www.jetbrains.com/idea/) - Java & Kotlin IDE
-* [Gradle](https://gradle.org/) - Build Tool & Monorepo Management
+* [Gradle 5.4](https://gradle.org/) - Build Tool & Monorepo Management
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details
