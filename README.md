@@ -8,3 +8,10 @@ Shipping companies are always tyring to achieve efficiency by strategically load
 
 ### Computer Authentication
 Let's say a computer generates a large set of positive integers that get stored instead of a password. A password can then be stored as a subset of those integers by converting symbols to associated integers. When the user types in a password the computer can test whether its associated subset is a solution to the subset sum problem.
+
+## Built With
+* [IntelliJ Idea CE](https://www.jetbrains.com/idea/) - Java & Kotlin IDE
+* [Gradle](https://gradle.org/) - Build Tool & Monorepo Management
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details
