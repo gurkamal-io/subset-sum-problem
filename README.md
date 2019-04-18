@@ -9,14 +9,12 @@ Let's say a computer generates a large set of positive integers that get stored 
 ## Projects in this Repository
 * [```integer-algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/integer-algorithm/src/main/java/integer_algorithm) - The classical version of this problem, where a set of integers is represented as a ```java.util.ArrayList<Integer>```.
 * [```itunes_algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/itunes-algorithm/src/main/java/itunes_algorithm) - Imagine an iTunes playlist with many songs and a radio station seeking to efficiently broadcast music. The algorithm figures out how to fill up the station's broadcast with a set of songs that match an exact time target down to the second.
-## Installation
-#### Prerequesites
-* [Java 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html) - Gradle 5.4 requires Java 8 or later to run.
+## Prerequesites
+Gradle 5.4 requires [Java 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html) or later to run.
 * MacOS<br />```$ brew cask install java```
 * Linux<br />```$ brew cask install java```
 * Windows<br />```C:\> choco install jdk8```
 ## Usage
-#### Command Line
 ```
 $ git clone https://github.com/gurkamalpsc/subset-sum-problem.git && cd subset-sum-problem && ./gradlew run
 ```
