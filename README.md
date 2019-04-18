@@ -11,9 +11,9 @@ Let's say a computer generates a large set of positive integers that get stored 
 * [```itunes_algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/itunes-algorithm/src/main/java/itunes_algorithm) - Imagine an iTunes playlist with many songs and a radio station seeking to efficiently broadcast music. The algorithm figures out how to fill up the station's broadcast with a set of songs that match an exact time target down to the second.
 ## Prerequesites
 Gradle 5.4 requires [Java 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html) or later to run.
-* MacOS<br />```$ brew cask install java```
-* Linux<br />```$ brew cask install java```
-* Windows<br />```C:\> choco install jdk8```
+* Mac - using [Homebrew](https://brew.sh/)<br />```$ brew cask install java8```
+* Linux - using [APT](https://wiki.debian.org/Apt)<br />```$ sudo apt install oracle-java8-installer```
+* Windows using [Chocolatey](https://chocolatey.org/)<br />```C:\> choco install jdk8```
 ## Usage
 ```
 $ git clone https://github.com/gurkamalpsc/subset-sum-problem.git && cd subset-sum-problem && ./gradlew run
