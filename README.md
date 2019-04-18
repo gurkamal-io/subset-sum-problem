@@ -1,5 +1,4 @@
 # subset-sum-problem
-## Background
 The subset sum problem is an important decision problem in Computer Science that inherently has an exponential complexity. Given a data set of positive integers, the problem seeks to find a subset of those values whose sum meets a given target exactly, or as close as possible.
 ## Real World Applications
 #### Loading a Truck, Ship, or Plane
