@@ -7,8 +7,8 @@ Shipping companies are always tyring to achieve efficiency by strategically load
 #### Computer Authentication
 Let's say a computer generates a large set of positive integers that get stored instead of a password. A password can then be stored as a subset of those integers by converting symbols to associated integers. When the user types in a password the computer can test whether its associated subset is a solution to the subset sum problem.
 ## Projects in this Repository
-* [```integer-algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/integer-algorithm/src/main/java/integer_algorithm) - The classical version of this problem, where a set of integers is represented as a ```java.util.ArrayList<Integer>```.
-* [```itunes_algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/itunes-algorithm/src/main/java/itunes_algorithm) - Imagine an iTunes playlist with many songs and a radio station seeking to efficiently broadcast music. The algorithm figures out how to fill up the station's broadcast with a set of songs that match an exact time target down to the second.
+* [```integer-algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/integer-algorithm/src/main/java/integer_algorithm)<br />The classical version of this problem using a set of positive integers.
+* [```itunes_algorithm```](https://github.com/gurkamalpsc/subset-sum-problem/tree/master/itunes-algorithm/src/main/java/itunes_algorithm)<br />Imagine an iTunes playlist with many songs and a radio station seeking to efficiently broadcast music. The algorithm figures out how to fill up the station's broadcast with a set of songs that match an exact time target down to the second.
 ## Prerequesites
 Gradle 5.4 requires [Java 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html) or later to run.
 * Mac<br />```$ brew cask install java8```
